@@ -1,6 +1,9 @@
+// Importing React
 import React from 'react';
-import { AppNavbar } from './Navbar';
 
+// Importing app specific components
+import { AppNavbar } from './Navbar';
+import { AppCarousel } from './Carousel';
 
 export const App = () => {
   return (
