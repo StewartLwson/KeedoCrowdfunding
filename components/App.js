@@ -9,6 +9,7 @@ export const App = () => {
   return (
     <div>
       <AppNavbar />
+      <AppCarousel />
     </div>
   );
 }
