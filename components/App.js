@@ -1,5 +1,11 @@
 import React from 'react';
+import { AppNavbar } from './Navbar';
+
 
 export const App = () => {
-  return <h1>Hello world</h1>;
+  return (
+    <div>
+      <AppNavbar />
+    </div>
+  );
 }
