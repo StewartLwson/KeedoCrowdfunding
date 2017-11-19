@@ -25,6 +25,8 @@ export const AppNavbar = () => {
       <NavbarCollapse>
         <Nav>
           <NavItem eventKey={1} href="#">Projects</NavItem>
+          <NavItem eventKey={2} href="#">Start A Project</NavItem>
+          <NavItem eventKey={2} href="#">Sign In</NavItem>
         </Nav>
       </NavbarCollapse>
     </Navbar>
