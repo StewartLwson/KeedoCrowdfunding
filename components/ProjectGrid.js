@@ -14,6 +14,16 @@ export const ProjectGrid = () => {
         <Col xs={6} md={4}></Col>
         <Col xs={6} md={4}></Col>
       </Row>
+      <Row className='show-grid'>
+        <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4}></Col>
+      </Row>
+      <Row className='show-grid'>
+        <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4}></Col>
+      </Row>
     </Grid>
   );
 }
