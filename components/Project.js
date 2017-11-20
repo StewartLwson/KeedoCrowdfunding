@@ -9,19 +9,25 @@ export class Project extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "Project Title",
+      title: ["Android App", "Music App", "Data Analysis", "Society Project", "Security System", "Robotics",
+      "Research", "Video", "Game", "Web App", "Website", "iPhone App", "Rasberry Pi", "Arduino", "Java App",
+      "C# App", "Python App", "Podcast"],
       desc: "Project Description",
       media: "./app/image/keedo_logo.png",
-      funding: 50
+      funding: parseInt(Math.random() * (100 - 60) + 60) + 1,
+      max: 100
     };
   }
 
   render() {
+    let percent = (this.state.funding/this.state.max * 100).toFixed(0);
+    let project = (parseInt(Math.random() * (this.state.title.length))).toFixed(0)
+    console.log(project);
     return (
       <div>
-        <h1>{this.state.title}</h1>
+        <h1>{this.state.title[project]}</h1>
         <Thumbnail src={this.state.media} alt="242x200" />
-        <ProgressBar now={this.state.funding} label={`${this.state.funding}%`} />
+        <ProgressBar bsStyle={(percent != 100)?"":"success"} now={percent} label={`${percent}%`} />
         <p>{this.state.desc}</p>
       </div>
     );
