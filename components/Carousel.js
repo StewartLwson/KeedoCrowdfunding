@@ -10,21 +10,21 @@ export const AppCarousel = () => {
   return (
       <Carousel>
         <CarouselItem>
-          <img width={900} height={500} alt="900x500" src="" />
+          <img width={900} height={500} alt="900x500" src="./app/image/keedo_logo.png" />
           <CarouselCaption>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </CarouselCaption>
         </CarouselItem>
         <CarouselItem>
-          <img width={900} height={500} alt="900x500" src="" />
+          <img width={900} height={500} alt="900x500" src="./app/image/keedo_logo.png" />
           <CarouselCaption>
             <h3>Second slide label</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </CarouselCaption>
         </CarouselItem>
         <CarouselItem>
-          <img width={900} height={500} alt="900x500" src="" />
+          <img width={900} height={500} alt="900x500" src="./app/image/keedo_logo.png" />
           <CarouselCaption>
             <h3>Third slide label</h3>
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>

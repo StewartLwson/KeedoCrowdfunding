@@ -25,7 +25,7 @@ export class Project extends React.Component {
     console.log(project);
     return (
       <div>
-        <h1>{this.state.title[project]}</h1>
+        <h2>{this.state.title[project]}</h2>
         <Thumbnail src={this.state.media} alt="242x200" />
         <ProgressBar bsStyle={(percent != 100)?"":"success"} now={percent} label={`${percent}%`} />
         <p>{this.state.desc}</p>
