@@ -8,19 +8,30 @@ import { Home } from './Home';
 export class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { page:1 }
+    this.state = { page: 1 };
     this.changePage = this.changePage.bind(this);
   }
 
-  changePage(newName) {
-    this.setState({ name:newName });
+  changePage(newPage) {
+    this.setState({ page: newPage });
   }
 
   render() {
+    const page = this.state.page;
+
+    let display = null;
+    if (page === 1) {
+      display = <Home />
+    } else if (page === 2) {
+      display = <Home />
+    } else {
+      display = <Home />
+    }
+
     return (
       <div>
         <AppNavbar onSelect={this.changePage}/>
-        <Home />
+        {display}
       </div>
     );
   }

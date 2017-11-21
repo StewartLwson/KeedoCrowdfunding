@@ -20,8 +20,9 @@ export class AppNavbar extends React.Component  {
   }
 
   handleSelect(e) {
-    const page = e.target.value;
-    this.props.onSelect(e);
+    const page = e;
+    console.log(page);
+    this.props.onSelect(page);
   }
 
   render() {
@@ -35,9 +36,9 @@ export class AppNavbar extends React.Component  {
         </NavbarHeader>
         <NavbarCollapse>
           <Nav>
-            <NavItem eventKey={1} onSelect={this.renderNewPage} href="#">Projects</NavItem>
-            <NavItem eventKey={2} onSelect={this.renderNewPage} href="#">Start A Project</NavItem>
-            <NavItem eventKey={3} onSelect={this.renderNewPage} href="#">Sign In</NavItem>
+            <NavItem eventKey={1} onSelect={this.handleSelect} href="#">Projects</NavItem>
+            <NavItem eventKey={2} onSelect={this.handleSelect} href="#">Start A Project</NavItem>
+            <NavItem eventKey={3} onSelect={this.handleSelect} href="#">Sign In</NavItem>
           </Nav>
         </NavbarCollapse>
       </Navbar>
