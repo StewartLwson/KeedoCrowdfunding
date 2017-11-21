@@ -4,6 +4,7 @@ import React from 'react';
 //Importing different page components
 import { AppNavbar } from './Navbar';
 import { Home } from './Home';
+import { Projects } from './Projects';
 
 export class App extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export class App extends React.Component {
     if (page === 1) {
       display = <Home />
     } else if (page === 2) {
-      display = <Home />
+      display = <Projects />
     } else {
       display = <Home />
     }
