@@ -22,7 +22,6 @@ export class Project extends React.Component {
   render() {
     let percent = (this.state.funding/this.state.max * 100).toFixed(0);
     let project = (parseInt(Math.random() * (this.state.title.length))).toFixed(0)
-    console.log(project);
     return (
       <div>
         <h2>{this.state.title[project]}</h2>
