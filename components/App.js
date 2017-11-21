@@ -5,11 +5,23 @@ import React from 'react';
 import { AppNavbar } from './Navbar';
 import { Home } from './Home';
 
-export const App = () => {
-  return (
-    <div>
-      <AppNavbar />
-      <Home />
-    </div>
-  )
+export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { page:1 }
+    this.changePage = this.changePage.bind(this);
+  }
+
+  changePage(newName) {
+    this.setState({ name:newName });
+  }
+
+  render() {
+    return (
+      <div>
+        <AppNavbar onSelect={this.changePage}/>
+        <Home />
+      </div>
+    );
+  }
 }
