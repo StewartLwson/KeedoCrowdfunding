@@ -22,11 +22,11 @@ export class App extends React.Component {
 
     let display = null;
     if (page === 1) {
-      display = <Home />
+      display = <Home />;
     } else if (page === 2) {
-      display = <Projects />
+      display = <Projects />;
     } else {
-      display = <Home />
+      display = <Home />;
     }
 
     return (
