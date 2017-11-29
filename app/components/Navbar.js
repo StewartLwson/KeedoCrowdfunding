@@ -13,8 +13,6 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 // Importing other ReactBootstrap components
 import Image from 'react-bootstrap/lib/Image';
 
-import { SignIn } from './SignIn';
-
 export class AppNavbar extends React.Component  {
   constructor(props) {
     super(props);
@@ -23,6 +21,7 @@ export class AppNavbar extends React.Component  {
 
   handleSelect(e) {
     const page = e;
+    console.log(page);
     this.props.onSelect(page);
   }
 
