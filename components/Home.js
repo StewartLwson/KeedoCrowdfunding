@@ -25,7 +25,7 @@ export const Home = () => {
           </Col>
         </Row>
         <Row className='show-grid'>
-          <Col xs={12} md={8}>
+          <Col xs={8} md={12}>
             <AppCarousel />
           </Col>
         </Row>
@@ -37,11 +37,6 @@ export const Home = () => {
             <h1>Most Popular Right Now</h1>
             <hr />
           </Col>
-        </Row>
-        <Row className='show-grid'>
-          <Col xs={6} md={4}></Col>
-          <Col xs={6} md={4}></Col>
-          <Col xs={6} md={4}><SearchBar /></Col>
         </Row>
         <Row className='show-grid'>
           <Col xs={6} md={4}><Project /></Col>

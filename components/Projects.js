@@ -17,7 +17,7 @@ export const Projects = () => {
       <Grid>
         <Row className='show-grid'>
           <Col xs={6} md={12}>
-            <h1>Most Popular Right Now</h1>
+            <h1>Projects</h1>
             <hr />
           </Col>
         </Row>

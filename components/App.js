@@ -5,6 +5,8 @@ import React from 'react';
 import { AppNavbar } from './Navbar';
 import { Home } from './Home';
 import { Projects } from './Projects';
+import { SignIn } from './SignIn';
+import { Submit } from './Submit';
 
 export class App extends React.Component {
   constructor(props) {
@@ -25,8 +27,10 @@ export class App extends React.Component {
       display = <Home />;
     } else if (page === 2) {
       display = <Projects />;
+    } else if (page === 3) {
+      display = <Submit />;
     } else {
-      display = <Home />;
+      display = <SignIn />;
     }
 
     return (
