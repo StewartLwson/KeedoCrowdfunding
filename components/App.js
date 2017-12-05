@@ -1,6 +1,9 @@
 // Importing React
 import React from 'react';
 
+// Initializing firebase
+import fire from '../fire';
+
 //Importing different page components
 import { AppNavbar } from './Navbar';
 import { Home } from './Home';
