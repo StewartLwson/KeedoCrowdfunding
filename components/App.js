@@ -7,6 +7,7 @@ import { Home } from './Home';
 import { Projects } from './Projects';
 import { SignIn } from './SignIn';
 import { Submit } from './Submit';
+import {SingleProject} from './SingleProject';
 
 export class App extends React.Component {
   constructor(props) {
@@ -24,13 +25,15 @@ export class App extends React.Component {
 
     let display = null;
     if (page === 1) {
-      display = <Home />;
+      display = <Home onSelect={this.changePage}/>;
     } else if (page === 2) {
-      display = <Projects />;
+      display = <Projects onSelect={this.changePage}/>;
     } else if (page === 3) {
       display = <Submit />;
-    } else {
+    } else if (page === 4) {
       display = <SignIn />;
+    }else{
+      display = <SingleProject />;
     }
 
     return (
