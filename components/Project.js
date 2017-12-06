@@ -15,7 +15,7 @@ export class Project extends React.Component {
       desc: "Project Description",
       media: "./app/image/keedo_logo.png",
       funding: parseInt(Math.random() * (100 - 60) + 60) + 1,
-      max: 100
+      max: 100,  
     };
   }
 
