@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/lib/Col';
 
 import { Project } from './Project';
 import { SearchBar } from './SearchBar';
+import { ProjectFull } from './ProjectFull';
 
 export class Projects extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export class Projects extends React.Component {
       funding: []
     };
     this.createLayout = this.createLayout.bind(this);
+    this.createPage = this.createPage.bind(this);
   }
 
   // Gets projects from database and asigns them to the components state
@@ -36,7 +38,6 @@ export class Projects extends React.Component {
       this.state.desc.push(desc);
       this.state.goal.push(goal);
       this.state.funding.push(funding);
-      this
     })
   };
 
@@ -62,7 +63,13 @@ export class Projects extends React.Component {
       let cell = [];
       for(let j = 0; j < cols; j++) {
         let current = (i * 3) + j;
-        cell.push(<Col xs={6} md={4}><Project name={names[current]} desc={desc[current]} perc={funding[current]/goal[current] * 100} id={current}/></Col>);
+        cell.push(<Col xs={6} md={4}><Project
+          name={names[current]}
+          desc={desc[current]}
+          perc={funding[current]/goal[current] * 100}
+          onClick={this.createPage}
+          id={current}/>
+        </Col>);
       }
       rows.push(<Row>{cell}</Row>);
     }
@@ -70,7 +77,13 @@ export class Projects extends React.Component {
   }
 
   createPage(p) {
-    <ProjectFull name={names[p]} desc={desc[p]} perc={funding[p]/goal[p] * 100} />;
+    console.log("Hey");
+    let size = this.state.names.length;
+    let names = this.state.names;
+    let desc = this.state.desc;
+    let goal = this.state.goal;
+    let funding = this.state.funding;
+    return <ProjectFull name={names[p]} desc={desc[p]} perc={funding[p]/goal[p] * 100} />;
   }
 
   render() {

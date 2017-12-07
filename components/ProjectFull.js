@@ -13,7 +13,6 @@ import { Project } from './Project';
 export class ProjectFull extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   render(){

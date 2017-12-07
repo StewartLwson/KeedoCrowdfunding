@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/lib/Button';
 export class Project extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind();
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
@@ -20,7 +20,6 @@ export class Project extends React.Component {
     const now = this.props.perc;
 
     return (
-
       <div>
         <h2>{this.props.name}</h2>
         <Thumbnail src='./app/image/keedo_logo.png' alt='242x200' />
