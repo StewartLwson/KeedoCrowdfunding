@@ -17,6 +17,7 @@ export class Projects extends React.Component {
     super(props);
     this.state = {
       project: null,
+      search: '',
       names: [],
       desc: [],
       goal: [],
@@ -24,6 +25,7 @@ export class Projects extends React.Component {
     };
     this.createLayout = this.createLayout.bind(this);
     this.createPage = this.createPage.bind(this);
+    this.searchFor = this.searchFor.bind(this);
   }
 
   // Gets projects from database and asigns them to the components state
@@ -40,6 +42,10 @@ export class Projects extends React.Component {
       this.state.funding.push(funding);
     })
   };
+
+  searchFor(newSearch) {
+    this.setState({ search: newSearch });
+  }
 
   createLayout() {
     let rows = [];
@@ -100,9 +106,9 @@ export class Projects extends React.Component {
             </Col>
           </Row>
           <Row className='show-grid'>
+            <Col xs={6} md={4}>{this.state.search}</Col>
             <Col xs={6} md={4}></Col>
-            <Col xs={6} md={4}></Col>
-            <Col xs={6} md={4}><SearchBar /></Col>
+            <Col xs={6} md={4}><SearchBar onChange={this.searchFor}/></Col>
           </Row>
           {this.createLayout()}
         </Grid>
