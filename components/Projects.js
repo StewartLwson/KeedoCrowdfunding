@@ -10,37 +10,25 @@ import Col from 'react-bootstrap/lib/Col';
 
 import { Project } from './Project';
 import { SearchBar } from './SearchBar';
+import { ProjectGrid } from './ProjectGrid';
 
 export class Projects extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ids: [],
-      names: []
+      names: [],
+      desc: []
     };
   }
 
   componentWillMount() {
-    for(let i = 0; i <= 999; i++) {
-      let no = i.toString();
-      if(no.length == 1) {
-        no = "00" + no;
-      } else if(no.length == 2) {
-        no = "0" + no;
-      }
-      let projectRef = fire.database().ref('project_names/' + no);
-      projectRef.on('value', (snapshot) => {
-        if (snapshot.val() !== null) {
-          this.setState( {
-            ids: this.state.ids.push(snapshot.key),
-            names: this.state.names.push(snapshot.val())
-          });
-
-        }
-      });
-    }
-    console.log(this.state.ids);
-    console.log(this.state.names);
+    const refProjects = fire.database().ref().child('Projects');
+    refProjects.on('child_added', snap => {
+      var name = snap.child("Name").val();
+      var desc = snap.child("Desc").val();
+      this.state.names.push(name);
+      this.state.desc.push(desc);
+    })
   };
 
   render() {
@@ -61,21 +49,8 @@ export class Projects extends React.Component {
             <Col xs={6} md={4}></Col>
             <Col xs={6} md={4}><SearchBar /></Col>
           </Row>
-          <Row className='show-grid'>
-            <Col xs={6} md={4}><Project /></Col>
-            <Col xs={6} md={4}><Project /></Col>
-            <Col xs={6} md={4}><Project /></Col>
-          </Row>
-          <Row className='show-grid'>
-            <Col xs={6} md={4}><Project /></Col>
-            <Col xs={6} md={4}><Project /></Col>
-            <Col xs={6} md={4}><Project /></Col>
-          </Row>
-          <Row className='show-grid'>
-            <Col xs={6} md={4}><Project /></Col>
-            <Col xs={6} md={4}><Project /></Col>
-            <Col xs={6} md={4}><Project /></Col>
-          </Row>
+          {console.log(this.state.names.length)}
+          <ProjectGrid size={this.state.names.length} />
         </Grid>
       </div>
     );

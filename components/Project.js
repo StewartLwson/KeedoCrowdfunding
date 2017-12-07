@@ -13,10 +13,10 @@ export class Project extends React.Component {
 
       <div>
 
-        <h2>Project Title</h2>
+        <h2>{this.props.name}</h2>
         <Thumbnail src='./app/image/keedo_logo.png' alt='242x200' />
         <ProgressBar now={now} label={`${now}%`} />
-        <p>Description</p>
+        <p>{this.props.desc}</p>
       </div>
     );
   }
