@@ -19,8 +19,10 @@ export class Projects extends React.Component {
       names: [],
       desc: []
     };
+    this.createLayout = this.createLayout.bind(this);
   }
 
+  // Gets projects from database and asigns them to the components state
   componentWillMount() {
     const refProjects = fire.database().ref().child('Projects');
     refProjects.on('child_added', snap => {
@@ -30,6 +32,33 @@ export class Projects extends React.Component {
       this.state.desc.push(desc);
     })
   };
+
+  createLayout() {
+    let rows = [];
+    let size = this.state.names.length;
+    let names = this.state.names;
+    let desc = this.state.desc;
+    let height = size / 3;
+    let count = size;
+    for(let i = 0; i < height; i++) {
+      let cols;
+      if (count <= 3 && count % 3 === 1) {
+        cols = 1;
+      } else if (count <= 3 && count % 3 === 2) {
+        cols = 2;
+      } else {
+        cols = 3;
+      }
+      count -= 3;
+      let cell = [];
+      for(let j = 0; j < cols; j++) {
+        let current = (i * 3) + j;
+        cell.push(<Col xs={6} md={4}><Project name={names[current]} desc={desc[current]} key={current} /></Col>);
+      }
+      rows.push(<Row key={i}>{cell}</Row>);
+    }
+    return rows;
+  }
 
   render() {
     return (
@@ -49,8 +78,7 @@ export class Projects extends React.Component {
             <Col xs={6} md={4}></Col>
             <Col xs={6} md={4}><SearchBar /></Col>
           </Row>
-          {console.log(this.state.names.length)}
-          <ProjectGrid size={this.state.names.length} />
+          {this.createLayout()}
         </Grid>
       </div>
     );
