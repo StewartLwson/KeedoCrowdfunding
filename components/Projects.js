@@ -16,12 +16,13 @@ export class Projects extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      project: null,
       search: '',
-      names: [],
-      desc: [],
-      goal: [],
-      funding: []
+      projects: {
+        names: [],
+        desc: [],
+        goal: [],
+        funding: []
+      }
     };
     this.createLayout = this.createLayout.bind(this);
     this.createPage = this.createPage.bind(this);
@@ -36,24 +37,44 @@ export class Projects extends React.Component {
       var desc = snap.child("Desc").val();
       var goal = snap.child("Goal").val();
       var funding = snap.child("Funding").val();
-      this.state.names.push(name);
-      this.state.desc.push(desc);
-      this.state.goal.push(goal);
-      this.state.funding.push(funding);
+      this.state.projects.names.push(name);
+      this.state.projects.desc.push(desc);
+      this.state.projects.goal.push(goal);
+      this.state.projects.funding.push(funding);
     })
   };
 
   searchFor(newSearch) {
     this.setState({ search: newSearch });
+    let projects = this.state.projects;
+    if(newSearch !== '') {
+      let newProjects = {
+        names: [],
+        desc: [],
+        goal: [],
+        funding: []
+      };
+      for(let i = 0; i < projects.names.length; i++){
+        let len = newSearch.length;
+        if (projects.names[i].substring(0, len) === newSearch) {
+          newProjects.names.push(projects.names[i]);
+          newProjects.desc.push(projects.desc[i]);
+          newProjects.goal.push(projects.goal[i]);
+          newProjects.funding.push(projects.funding[i]);
+        }
+      }
+      this.state.projects = newProjects;
+    }
   }
 
   createLayout() {
+    let projects = this.state.projects;
     let rows = [];
-    let size = this.state.names.length;
-    let names = this.state.names;
-    let desc = this.state.desc;
-    let goal = this.state.goal;
-    let funding = this.state.funding;
+    let size = projects.names.length;
+    let names = projects.names;
+    let desc = projects.desc;
+    let goal = projects.goal;
+    let funding = projects.funding;
     let height = size / 3;
     let count = size;
     for(let i = 0; i < height; i++) {
@@ -83,12 +104,12 @@ export class Projects extends React.Component {
   }
 
   createPage(p) {
-    console.log("Hey");
-    let size = this.state.names.length;
-    let names = this.state.names;
-    let desc = this.state.desc;
-    let goal = this.state.goal;
-    let funding = this.state.funding;
+    console.log(p);
+    let size = this.state.projects.names.length;
+    let names = this.state.projects.names;
+    let desc = this.state.projects.desc;
+    let goal = this.state.projects.goal;
+    let funding = this.state.projects.funding;
     return <ProjectFull name={names[p]} desc={desc[p]} perc={funding[p]/goal[p] * 100} />;
   }
 
@@ -106,7 +127,7 @@ export class Projects extends React.Component {
             </Col>
           </Row>
           <Row className='show-grid'>
-            <Col xs={6} md={4}>{this.state.search}</Col>
+            <Col xs={6} md={4}></Col>
             <Col xs={6} md={4}></Col>
             <Col xs={6} md={4}><SearchBar onChange={this.searchFor}/></Col>
           </Row>
