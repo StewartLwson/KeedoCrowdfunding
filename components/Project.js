@@ -8,7 +8,7 @@ import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 export class Project extends React.Component {
 
   render() {
-    const now = 70;
+    const now = this.props.perc;
     return (
 
       <div>
