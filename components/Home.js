@@ -38,21 +38,6 @@ export const Home = () => {
             <hr />
           </Col>
         </Row>
-        <Row className='show-grid'>
-          <Col xs={6} md={4}><Project /></Col>
-          <Col xs={6} md={4}><Project /></Col>
-          <Col xs={6} md={4}><Project /></Col>
-        </Row>
-        <Row className='show-grid'>
-          <Col xs={6} md={4}><Project /></Col>
-          <Col xs={6} md={4}><Project /></Col>
-          <Col xs={6} md={4}><Project /></Col>
-        </Row>
-        <Row className='show-grid'>
-          <Col xs={6} md={4}><Project /></Col>
-          <Col xs={6} md={4}><Project /></Col>
-          <Col xs={6} md={4}><Project /></Col>
-        </Row>
       </Grid>
     </div>
   );

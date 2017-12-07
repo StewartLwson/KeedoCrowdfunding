@@ -10,12 +10,12 @@ import Col from 'react-bootstrap/lib/Col';
 
 import { Project } from './Project';
 import { SearchBar } from './SearchBar';
-import { ProjectGrid } from './ProjectGrid';
 
 export class Projects extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      project: null,
       names: [],
       desc: [],
       goal: [],
@@ -62,11 +62,15 @@ export class Projects extends React.Component {
       let cell = [];
       for(let j = 0; j < cols; j++) {
         let current = (i * 3) + j;
-        cell.push(<Col xs={6} md={4}><Project name={names[current]} desc={desc[current]} perc={funding[current]/goal[current] * 100} key={current}/></Col>);
+        cell.push(<Col xs={6} md={4}><Project name={names[current]} desc={desc[current]} perc={funding[current]/goal[current] * 100} id={current}/></Col>);
       }
-      rows.push(<Row key={i}>{cell}</Row>);
+      rows.push(<Row>{cell}</Row>);
     }
     return rows;
+  }
+
+  createPage(p) {
+    <ProjectFull name={names[p]} desc={desc[p]} perc={funding[p]/goal[p] * 100} />;
   }
 
   render() {
@@ -75,7 +79,7 @@ export class Projects extends React.Component {
         <br />
         <br />
         <br />
-        <Grid>
+        <Grid key={1}>
           <Row className='show-grid'>
             <Col xs={6} md={12}>
               <h1>Project</h1>
