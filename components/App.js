@@ -1,15 +1,10 @@
 // Importing React
 import React from 'react';
 
-// Initializing firebase
-import fire from '../fire';
-
 //Importing different page components
 import { AppNavbar } from './Navbar';
 import { Home } from './Home';
 import { Projects } from './Projects';
-import { ProjectFull } from './ProjectFull';
-import { SignIn } from './SignIn';
 import { Submit } from './Submit';
 
 export class App extends React.Component {
@@ -33,8 +28,6 @@ export class App extends React.Component {
       display = <Projects />;
     } else if (page === 3) {
       display = <Submit />;
-    } else if (this.props.project !== null) {
-      display = <ProjectFull project = {this.props.project} />
     } else {
       display = <SignIn />;
     }
