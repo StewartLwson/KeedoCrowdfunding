@@ -25,6 +25,7 @@ export class AppNavbar extends React.Component  {
   constructor(props) {
     super(props);
     this.handleSelect = this.handleSelect.bind(this);
+    
   }
 
   authenticate() {
@@ -50,7 +51,7 @@ export class AppNavbar extends React.Component  {
       var credential = error.credential;
       // ...
     });
-    
+
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
     .then(function() {
       var provider = new firebase.auth.GoogleAuthProvider();
@@ -88,6 +89,7 @@ export class AppNavbar extends React.Component  {
         </NavbarHeader>
         <Navbar.Collapse>
           <Nav>
+            
             <NavItem eventKey={1} onSelect={this.handleSelect} href='#'>Home</NavItem>
             <NavItem eventKey={2} onSelect={this.handleSelect} href="#">Projects</NavItem>
             <NavItem eventKey={3} onSelect={this.handleSelect} href="#">Start A Project</NavItem>

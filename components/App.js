@@ -5,7 +5,6 @@ import React from 'react';
 import { AppNavbar } from './Navbar';
 import { Home } from './Home';
 import { Projects } from './Projects';
-import { SignIn } from './SignIn';
 import { Submit } from './Submit';
 
 export class App extends React.Component {
